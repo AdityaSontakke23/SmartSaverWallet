@@ -24,7 +24,6 @@ class TransactionListScreen extends StatelessWidget {
     await repo.deleteTransaction(id);
   }
 
-  
   void _showQuickActions(BuildContext context, TransactionModel tx) {
     HapticFeedback.mediumImpact();
     
@@ -38,7 +37,6 @@ class TransactionListScreen extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            
             Container(
               width: 40,
               height: 4,
@@ -48,7 +46,6 @@ class TransactionListScreen extends StatelessWidget {
                 borderRadius: BorderRadius.circular(2),
               ),
             ),
-            
             
             ListTile(
               leading: Container(
@@ -70,7 +67,6 @@ class TransactionListScreen extends StatelessWidget {
                 );
               },
             ),
-            
             
             ListTile(
               leading: Container(
@@ -116,7 +112,6 @@ class TransactionListScreen extends StatelessWidget {
               },
             ),
             
-            
             ListTile(
               leading: Container(
                 padding: const EdgeInsets.all(8),
@@ -159,40 +154,9 @@ class TransactionListScreen extends StatelessWidget {
             return const Center(child: CircularProgressIndicator());
           }
           final items = snapshot.data ?? [];
-          
-          if (items.isEmpty) {
-            return Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.receipt_long_outlined,
-                    size: 80,
-                    color: Theme.of(context).colorScheme.onSurface.withOpacity(0.3),
-                  ),
-                  const SizedBox(height: 16),
-                  Text(
-                    'No transactions yet',
-                    style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                      color: Theme.of(context).colorScheme.onSurface.withOpacity(0.5),
-                    ),
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    'Tap the button below to add your first transaction',
-                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      color: Theme.of(context).colorScheme.onSurface.withOpacity(0.4),
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                ],
-              ),
-            );
-          }
 
           return Column(
             children: [
-              
               Container(
                 padding: const EdgeInsets.all(16),
                 child: SizedBox(
@@ -223,36 +187,65 @@ class TransactionListScreen extends StatelessWidget {
                   ).wrapWithGradient(context),
                 ),
               ),
-              
-              
-              Expanded(
-                child: ListView.separated(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  itemCount: items.length,
-                  separatorBuilder: (_, __) => const SizedBox(height: 12),
-                  itemBuilder: (context, index) {
-                    final tx = items[index];
-                    
-                    return GestureDetector(
-                      onLongPress: () => _showQuickActions(context, tx),
-                      child: TransactionItem(
-                        transaction: tx,
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (_) => AddTransactionScreen(
-                                transaction: tx,
+
+              if (items.isEmpty)
+                Expanded(
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.receipt_long_outlined,
+                          size: 80,
+                          color: Theme.of(context).colorScheme.onSurface.withOpacity(0.3),
+                        ),
+                        const SizedBox(height: 16),
+                        Text(
+                          'No transactions yet',
+                          style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                            color: Theme.of(context).colorScheme.onSurface.withOpacity(0.5),
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+                        Text(
+                          'Tap the button above to add your first transaction',
+                          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                            color: Theme.of(context).colorScheme.onSurface.withOpacity(0.4),
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),
+                  ),
+                )
+              else
+                Expanded(
+                  child: ListView.separated(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    itemCount: items.length,
+                    separatorBuilder: (_, __) => const SizedBox(height: 12),
+                    itemBuilder: (context, index) {
+                      final tx = items[index];
+                      return GestureDetector(
+                        onLongPress: () => _showQuickActions(context, tx),
+                        child: TransactionItem(
+                          transaction: tx,
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => AddTransactionScreen(
+                                  transaction: tx,
+                                ),
                               ),
-                            ),
-                          );
-                        },
-                        onDelete: () => _deleteTx(context, tx.id),
-                      ),
-                    );
-                  },
+                            );
+                          },
+                          onDelete: () => _deleteTx(context, tx.id),
+                        ),
+                      );
+                    },
+                  ),
                 ),
-              ),
             ],
           );
         },
@@ -260,7 +253,6 @@ class TransactionListScreen extends StatelessWidget {
     );
   }
 }
-
 
 extension GradientButton on Widget {
   Widget wrapWithGradient(BuildContext context) {

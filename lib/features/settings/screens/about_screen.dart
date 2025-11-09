@@ -19,7 +19,6 @@ class AboutScreen extends StatelessWidget {
           : AppColors.lightPrimaryBackground,
       body: CustomScrollView(
         slivers: [
-          
           SliverAppBar(
             expandedHeight: 200,
             pinned: true,
@@ -85,18 +84,28 @@ class AboutScreen extends StatelessWidget {
                     children: [
                       SettingsItem(
                         title: 'Contact Support',
-                        subtitle: 'Get help & send feedback',
+                        subtitle: 'adison23.official@gmail.com',
                         leadingIcon: Icons.email_outlined,
                         iconColor: AppColors.greenStart,
-                        trailing: const Icon(Icons.chevron_right),
-                        onTap: () => _contactSupport(context),
+                        trailing: const Icon(Icons.copy),
+                        onTap: () {
+                          Clipboard.setData(
+                            const ClipboardData(text: 'adison23.official@gmail.com'),
+                          );
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text('Email copied to clipboard'),
+                              duration: Duration(seconds: 2),
+                              behavior: SnackBarBehavior.floating,
+                            ),
+                          );
+                        },
                         showDivider: false,
                       ),
                     ],
                   ),
                   const SizedBox(height: 24),
 
-                  
                   Container(
                     padding: const EdgeInsets.all(20),
                     margin: const EdgeInsets.symmetric(horizontal: 16),
@@ -128,7 +137,6 @@ class AboutScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 24),
 
-                  
                   SettingsCard(
                     children: [
                       SettingsItem(
@@ -154,7 +162,6 @@ class AboutScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 24),
 
-                  
                   Center(
                     child: Column(
                       children: [
@@ -169,7 +176,7 @@ class AboutScreen extends StatelessWidget {
                         ),
                         const SizedBox(height: 4),
                         Text(
-                          'Made with ❤️ in India',
+                          'Made in India',
                           style: AppTextStyles.bodySmall(context).copyWith(
                             color: Theme.of(context)
                                 .colorScheme
@@ -212,34 +219,6 @@ class AboutScreen extends StatelessWidget {
         ],
       ),
     );
-  }
-
-  void _contactSupport(BuildContext context) async {
-    final email = 'aditya.sontakke@somaiya.edu';
-    final subject = 'SmartSaver Support Request';
-    final uri = Uri.parse('mailto:$email?subject=$subject');
-
-    try {
-      if (await canLaunchUrl(uri)) {
-        await launchUrl(uri);
-      } else {
-        if (context.mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text('Could not open email app'),
-            ),
-          );
-        }
-      }
-    } catch (e) {
-      if (context.mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('Error: $e'),
-          ),
-        );
-      }
-    }
   }
 
   void _showPrivacyPolicy(BuildContext context) {
