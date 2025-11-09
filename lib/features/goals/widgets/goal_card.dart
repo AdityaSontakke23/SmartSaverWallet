@@ -25,12 +25,12 @@ class GoalCard extends StatelessWidget {
         ? 0.0
         : (goal.currentAmount / goal.targetAmount).clamp(0.0, 1.0);
 
-    // Calculate days remaining
+    
     final daysRemaining = goal.targetDate != null
         ? goal.targetDate!.difference(DateTime.now()).inDays
         : null;
 
-    // Determine progress color
+    
     Color progressColor;
     if (goal.isCompleted) {
       progressColor = AppColors.success;
@@ -65,10 +65,10 @@ class GoalCard extends StatelessWidget {
         ),
         child: Column(
           children: [
-            // Header with icon and delete
+            
             Row(
               children: [
-                // Icon with gradient background
+                
                 Container(
                   padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
@@ -114,7 +114,7 @@ class GoalCard extends StatelessWidget {
             ),
             const SizedBox(height: 20),
 
-            // Progress ring
+            
             GoalProgressRing(
               progress: progress,
               size: 100,
@@ -141,7 +141,7 @@ class GoalCard extends StatelessWidget {
             ),
             const SizedBox(height: 20),
 
-            // Amount info
+            
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -187,7 +187,7 @@ class GoalCard extends StatelessWidget {
             ),
             const SizedBox(height: 12),
 
-            // Remaining amount
+            
             if (!goal.isCompleted) ...[
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
@@ -219,7 +219,7 @@ class GoalCard extends StatelessWidget {
               const SizedBox(height: 12),
             ],
 
-            // Date info
+            
             if (daysRemaining != null)
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
@@ -256,11 +256,11 @@ class GoalCard extends StatelessWidget {
                 ),
               ),
 
-            // ✅ ACTION BUTTONS SECTION
+            
             if (!goal.isCompleted) ...[
               const SizedBox(height: 12),
 
-              // If goal is 100% or more, show "Mark Complete" button prominently
+              
               if (progress >= 1.0) ...[
                 SizedBox(
                   width: double.infinity,
@@ -282,7 +282,7 @@ class GoalCard extends StatelessWidget {
                 const SizedBox(height: 8),
               ],
 
-              // Add contribution button
+              
               if (onAddContribution != null)
                 SizedBox(
                   width: double.infinity,
@@ -302,7 +302,7 @@ class GoalCard extends StatelessWidget {
                 ),
             ],
 
-            // If completed, show completion badge
+            
             if (goal.isCompleted) ...[
               const SizedBox(height: 12),
               Container(

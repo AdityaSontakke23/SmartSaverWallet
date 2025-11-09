@@ -60,7 +60,7 @@ class _EditGoalScreenState extends State<EditGoalScreen> {
           : AppColors.lightPrimaryBackground,
       body: CustomScrollView(
         slivers: [
-          // Gradient AppBar
+          
           SliverAppBar(
             expandedHeight: 200,
             pinned: true,
@@ -102,7 +102,7 @@ class _EditGoalScreenState extends State<EditGoalScreen> {
             ),
           ),
 
-          // Content
+          
           SliverToBoxAdapter(
             child: Form(
               key: _formKey,
@@ -111,17 +111,17 @@ class _EditGoalScreenState extends State<EditGoalScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    // Current Progress Info
+                    
                     _buildProgressInfo(progress),
                     const SizedBox(height: 24),
 
-                    // Goal Title
+                    
                     _buildSectionTitle('Goal Title'),
                     const SizedBox(height: 12),
                     _buildTitleInput(),
                     const SizedBox(height: 24),
 
-                    // Select Icon
+                    
                     _buildSectionTitle('Choose Icon'),
                     const SizedBox(height: 12),
                     GoalIconPicker(
@@ -132,7 +132,7 @@ class _EditGoalScreenState extends State<EditGoalScreen> {
                     ),
                     const SizedBox(height: 24),
 
-                    // Target Amount
+                    
                     _buildSectionTitle('Target Amount'),
                     const SizedBox(height: 12),
                     _buildAmountInput(),
@@ -140,13 +140,13 @@ class _EditGoalScreenState extends State<EditGoalScreen> {
                     _buildQuickAmounts(),
                     const SizedBox(height: 24),
 
-                    // Target Date
+                    
                     _buildSectionTitle('Target Date'),
                     const SizedBox(height: 12),
                     _buildDatePicker(),
                     const SizedBox(height: 32),
 
-                    // Update Button
+                    
                     SizedBox(
                       height: 56,
                       child: GradientButton(

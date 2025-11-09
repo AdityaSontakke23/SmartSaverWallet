@@ -5,7 +5,7 @@ import '../../../core/theme/text_styles.dart';
 
 class GoalIconPicker extends StatelessWidget {
   final String? selectedCategory;
-  final Function(String, String) onCategorySelected; // (category, emoji)
+  final Function(String, String) onCategorySelected;
 
   const GoalIconPicker({
     Key? key,

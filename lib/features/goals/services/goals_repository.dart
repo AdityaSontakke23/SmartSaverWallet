@@ -1,4 +1,3 @@
-// lib/features/goals/services/goals_repository.dart
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../../core/constants/app_constants.dart';
 import '../../../core/services/auth_service.dart';
@@ -18,13 +17,7 @@ class GoalsRepository {
 }) {
   Query<Map<String, dynamic>> q = _col.where(AppConstants.fUid, isEqualTo: _uid);
   
-  // ✅ REMOVE the isCompleted filter for now to test
-  // if (isCompleted != null) {
-  //   q = q.where(AppConstants.fGoalIsCompleted, isEqualTo: isCompleted);
-  // }
-  
-  // ✅ REMOVE orderBy for now to test
-  // q = q.orderBy(AppConstants.fCreatedAt, descending: true);
+
   
   if (limit != null) q = q.limit(limit);
   
@@ -78,7 +71,7 @@ class GoalsRepository {
     await ref.update({AppConstants.fGoalIsCompleted: true});
   }
 
-  // Add these methods to GoalsRepository class
+
 
   Future<void> updateGoal({
     required String goalId,

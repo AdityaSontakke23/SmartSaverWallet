@@ -250,22 +250,22 @@ class _SavingsGoalsScreenState extends State<SavingsGoalsScreen>
 
     final goalDocs = snapshot.data!.docs;
     
-    // ✅ Parse and sort in the app
+    
     final allGoals = goalDocs
         .map<GoalModel>((doc) => GoalModel.fromDocument(doc))
         .toList()
       ..sort((a, b) {
-        // Sort by createdAt, newest first
+        
         final aDate = a.createdAt ?? DateTime(2000);
         final bDate = b.createdAt ?? DateTime(2000);
         return bDate.compareTo(aDate);
       });
 
-    // ✅ Filter in the app
+    
     final activeGoals = allGoals.where((g) => !g.isCompleted).toList();
     final completedGoals = allGoals.where((g) => g.isCompleted).toList();
 
-    // Calculate total saved across all goals
+    
     final totalSaved = allGoals.fold<double>(
       0.0,
       (sum, goal) => sum + goal.currentAmount,
@@ -273,14 +273,14 @@ class _SavingsGoalsScreenState extends State<SavingsGoalsScreen>
 
     return Column(
       children: [
-        // Overview card
+        
         GoalOverviewCard(
           totalSaved: totalSaved,
           activeGoals: activeGoals.length,
           completedGoals: completedGoals.length,
         ),
 
-        // Tab view
+        
         Expanded(
           child: TabBarView(
             controller: _tabController,
@@ -295,7 +295,7 @@ class _SavingsGoalsScreenState extends State<SavingsGoalsScreen>
   },
 ),
 
-      // Bottom button to add goal
+      
       bottomNavigationBar: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
@@ -364,7 +364,7 @@ class _SavingsGoalsScreenState extends State<SavingsGoalsScreen>
 
   Widget _buildGoalsList(List<GoalModel> goals, {required bool isActive}) {
   if (goals.isEmpty) {
-    // ... existing empty state
+    
   }
 
   return ListView.separated(
@@ -380,7 +380,7 @@ class _SavingsGoalsScreenState extends State<SavingsGoalsScreen>
       return GoalCard(
         goal: goal,
         onTap: () async {
-          // ✅ If goal is 100% and not completed, offer to mark complete
+          
           if (progress >= 1.0 && !goal.isCompleted) {
             final markComplete = await showDialog<bool>(
               context: context,
@@ -408,7 +408,7 @@ class _SavingsGoalsScreenState extends State<SavingsGoalsScreen>
             if (markComplete == true) {
               await _markComplete(goal);
             } else {
-              // Edit the goal instead
+              
               Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -417,7 +417,7 @@ class _SavingsGoalsScreenState extends State<SavingsGoalsScreen>
               );
             }
           } else {
-            // Regular edit
+            
             Navigator.push(
               context,
               MaterialPageRoute(

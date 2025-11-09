@@ -45,7 +45,7 @@ class _AddGoalScreenState extends State<AddGoalScreen> {
           : AppColors.lightPrimaryBackground,
       body: CustomScrollView(
         slivers: [
-          // Gradient AppBar
+          
           SliverAppBar(
             expandedHeight: 200,
             pinned: true,
@@ -87,7 +87,7 @@ class _AddGoalScreenState extends State<AddGoalScreen> {
             ),
           ),
 
-          // Content
+          
           SliverToBoxAdapter(
             child: Form(
               key: _formKey,
@@ -96,13 +96,13 @@ class _AddGoalScreenState extends State<AddGoalScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    // Goal Title
+                    
                     _buildSectionTitle('Goal Title'),
                     const SizedBox(height: 12),
                     _buildTitleInput(),
                     const SizedBox(height: 24),
 
-                    // Select Icon
+                    
                     _buildSectionTitle('Choose Icon'),
                     const SizedBox(height: 12),
                     GoalIconPicker(
@@ -113,7 +113,7 @@ class _AddGoalScreenState extends State<AddGoalScreen> {
                     ),
                     const SizedBox(height: 24),
 
-                    // Target Amount
+                    
                     _buildSectionTitle('Target Amount'),
                     const SizedBox(height: 12),
                     _buildAmountInput(
@@ -124,7 +124,7 @@ class _AddGoalScreenState extends State<AddGoalScreen> {
                     _buildQuickAmounts(),
                     const SizedBox(height: 24),
 
-                    // Current Savings
+                    
                     _buildSectionTitle('Current Savings (Optional)'),
                     const SizedBox(height: 12),
                     _buildAmountInput(
@@ -133,13 +133,13 @@ class _AddGoalScreenState extends State<AddGoalScreen> {
                     ),
                     const SizedBox(height: 24),
 
-                    // Target Date
+                    
                     _buildSectionTitle('Target Date'),
                     const SizedBox(height: 12),
                     _buildDatePicker(),
                     const SizedBox(height: 32),
 
-                    // Create Button
+                    
                     SizedBox(
                       height: 56,
                       child: GradientButton(
