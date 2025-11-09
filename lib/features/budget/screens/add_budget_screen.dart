@@ -29,7 +29,7 @@ class _AddBudgetScreenState extends State<AddBudgetScreen> {
   final List<String> _periods = ['Weekly', 'Monthly', 'Yearly', 'Custom'];
   final List<double> _suggestedAmounts = [5000, 10000, 20000, 50000];
 
-  // Predefined categories for budgets
+
   final List<Category> _categories = [
     Category(
       id: 'food',
@@ -98,7 +98,7 @@ class _AddBudgetScreenState extends State<AddBudgetScreen> {
           : AppColors.lightPrimaryBackground,
       body: CustomScrollView(
         slivers: [
-          // ✨ Beautiful gradient app bar
+          
           SliverAppBar(
             expandedHeight: 200,
             pinned: true,
@@ -149,7 +149,7 @@ class _AddBudgetScreenState extends State<AddBudgetScreen> {
             ),
           ),
 
-          // Content
+          
           SliverToBoxAdapter(
             child: Form(
               key: _formKey,
@@ -158,30 +158,30 @@ class _AddBudgetScreenState extends State<AddBudgetScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    // Budget Title
+                    
                     _buildSectionTitle('Budget Title'),
                     SizedBox(height: 12),
                     _buildTitleInput(),
                     SizedBox(height: 24),
 
-                    // Select Category
+                    
                     _buildSectionTitle('Select Category'),
                     SizedBox(height: 12),
                     _buildCategoryGrid(context),
                     SizedBox(height: 24),
 
-                    // Set Amount
+                    
                     _buildSectionTitle('Set Budget Amount'),
                     SizedBox(height: 12),
                     _buildAmountSection(context),
                     SizedBox(height: 24),
 
-                    // Budget Period
+                    
                     _buildSectionTitle('Budget Period'),
                     SizedBox(height: 12),
                     _buildPeriodSection(context),
                     
-                    // Show date range if custom period selected
+                    
                     if (_selectedPeriod == 'Custom') ...[
                       SizedBox(height: 16),
                       _buildDateRangePicker(context),
@@ -189,7 +189,7 @@ class _AddBudgetScreenState extends State<AddBudgetScreen> {
                     
                     SizedBox(height: 32),
 
-                    // Create Button
+                    
                     SizedBox(
                       height: 56,
                       child: GradientButton(
@@ -357,7 +357,7 @@ class _AddBudgetScreenState extends State<AddBudgetScreen> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        // Large amount input
+        
         Container(
           decoration: BoxDecoration(
             color: isDark
@@ -415,7 +415,7 @@ class _AddBudgetScreenState extends State<AddBudgetScreen> {
           ),
         ),
         SizedBox(height: 16),
-        // Quick amount chips
+        
         Text(
           'Quick Select',
           style: AppTextStyles.bodySmall(context).copyWith(
@@ -543,7 +543,7 @@ class _AddBudgetScreenState extends State<AddBudgetScreen> {
       ),
       child: Column(
         children: [
-          // Start Date
+          
           InkWell(
             onTap: () => _selectStartDate(context),
             borderRadius: BorderRadius.circular(12),
@@ -631,7 +631,7 @@ class _AddBudgetScreenState extends State<AddBudgetScreen> {
     );
   }
 
-  // ✅ Calendar picker for start date
+  
   Future<void> _selectStartDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       context: context,
@@ -656,7 +656,7 @@ class _AddBudgetScreenState extends State<AddBudgetScreen> {
     if (picked != null && picked != _startDate) {
       setState(() {
         _startDate = picked;
-        // If end date is before start date, reset it
+        
         if (_endDate != null && _endDate!.isBefore(_startDate!)) {
           _endDate = null;
         }
@@ -665,7 +665,7 @@ class _AddBudgetScreenState extends State<AddBudgetScreen> {
     }
   }
 
-  // ✅ Calendar picker for end date
+  
   Future<void> _selectEndDate(BuildContext context) async {
     if (_startDate == null) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -705,7 +705,7 @@ class _AddBudgetScreenState extends State<AddBudgetScreen> {
     }
   }
 
-  // Calculate dates based on selected period
+  
   void _calculateDatesFromPeriod() {
     final now = DateTime.now();
     switch (_selectedPeriod) {
@@ -762,7 +762,7 @@ class _AddBudgetScreenState extends State<AddBudgetScreen> {
       return;
     }
 
-    // Calculate dates if not custom
+    
     if (_selectedPeriod != 'Custom') {
       _calculateDatesFromPeriod();
     }

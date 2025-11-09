@@ -1,4 +1,3 @@
-// lib/features/budget/services/budgets_repository.dart
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../../core/constants/app_constants.dart';
 import '../../../core/services/auth_service.dart';
@@ -12,9 +11,8 @@ class BudgetsRepository {
 
   String get _uid => _auth.uidOrThrow;
 
-  // Stream all budgets for current user, optional month or active filter
   Stream<QuerySnapshot<Map<String, dynamic>>> streamUserBudgets({
-    String? month, // 'YYYY-MM'
+    String? month,
     bool? isActive,
     int? limit,
   }) {
@@ -31,12 +29,12 @@ class BudgetsRepository {
     return q.snapshots();
   }
 
-  // Create a budget (spent starts at 0)
+
   Future<DocumentReference<Map<String, dynamic>>> addBudget({
     required String category,
     required double amount,
     String? title,
-    String? month, // preferred if using monthly budgets
+    String? month,
     DateTime? startDate,
     DateTime? endDate,
     bool isActive = true,
@@ -59,7 +57,6 @@ class BudgetsRepository {
     return docRef;
   }
 
-  // Increment spent directly (used by "Add spend" UI)
   Future<void> addSpend({
     required String budgetId,
     required double amount,
@@ -95,7 +92,6 @@ class BudgetsRepository {
     await ref.update(data);
   }
 
-  // Add this method to BudgetsRepository class
 Future<void> deleteBudget(String budgetId) async {
     final ref = _col.doc(budgetId);
     final snap = await ref.get();

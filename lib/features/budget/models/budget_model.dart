@@ -8,9 +8,9 @@ class BudgetModel {
   final String title;
   final double amount;
   final double spent;
-  final String? month; // 'YYYY-MM' if using monthly budgets
-  final DateTime? startDate; // alternative to month
-  final DateTime? endDate;   // alternative to month
+  final String? month;
+  final DateTime? startDate;
+  final DateTime? endDate;
   final bool isActive;
   final DateTime? createdAt;
 

@@ -55,7 +55,6 @@ class BudgetCard extends StatelessWidget {
         ),
         child: Column(
           children: [
-            // Header with gradient and delete button
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
@@ -93,7 +92,7 @@ class BudgetCard extends StatelessWidget {
                       ),
                     ),
                   ),
-                  // Delete icon button
+                  
                   if (onDelete != null)
                     IconButton(
                       icon: const Icon(
@@ -109,13 +108,13 @@ class BudgetCard extends StatelessWidget {
                 ],
               ),
             ),
-            // Content section
+            
             Padding(
               padding: const EdgeInsets.all(16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Amount row
+                  
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -141,7 +140,7 @@ class BudgetCard extends StatelessWidget {
                           ),
                         ],
                       ),
-                      // Days remaining badge
+                      
                       Container(
                         padding: const EdgeInsets.symmetric(
                           horizontal: 12,
@@ -186,7 +185,7 @@ class BudgetCard extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 8),
-                  // Period text
+                  
                   Text(
                     periodText,
                     style: theme.textTheme.bodySmall?.copyWith(
@@ -196,7 +195,7 @@ class BudgetCard extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 12),
-                  // Progress bar
+                  
                   ClipRRect(
                     borderRadius: BorderRadius.circular(8),
                     child: LinearProgressIndicator(
@@ -217,7 +216,7 @@ class BudgetCard extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 8),
-                  // Progress percentage and status
+                  
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -286,7 +285,7 @@ class BudgetCard extends StatelessWidget {
                         ),
                     ],
                   ),
-                  // ✅ Add Spend Button (MISSING CODE)
+                  
                   const SizedBox(height: 12),
                   if (onAddSpend != null)
                     SizedBox(

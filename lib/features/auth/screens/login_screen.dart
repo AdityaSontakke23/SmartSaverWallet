@@ -72,7 +72,7 @@ class _LoginScreenState extends State<LoginScreen> {
     }
   }
 
-  // ✅ Forgot Password Function
+
   Future<void> _forgotPassword() async {
     final emailController = TextEditingController();
     
@@ -147,11 +147,11 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  // ✅ Updated Logo with app_logo.png
+
  Widget _buildLogo() {
   return Container(
-    width: 120, // Reduced from 140
-    height: 120, // Reduced from 140
+    width: 120,
+    height: 120,
     decoration: BoxDecoration(
       shape: BoxShape.circle,
       color: Colors.white.withOpacity(0.15),
@@ -163,7 +163,7 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ],
     ),
-    padding: const EdgeInsets.all(18), // Reduced from 20
+    padding: const EdgeInsets.all(18),
     child: ClipOval(
       child: Image.asset(
         'assets/images/logo/app_logo.png',
@@ -221,7 +221,7 @@ class _LoginScreenState extends State<LoginScreen> {
           Align(
             alignment: Alignment.centerRight,
             child: TextButton(
-              onPressed: _forgotPassword, // ✅ Implemented
+              onPressed: _forgotPassword,
               child: Text(
                 'Forgot Password?',
                 style: AppTypography.caption(context).copyWith(
@@ -243,7 +243,7 @@ class _LoginScreenState extends State<LoginScreen> {
   ),
   child: _loading
       ? SizedBox(
-          width: 220, // ✅ Same size as CircularProgressIndicator was
+          width: 220,
           height: 60,
           child: Lottie.asset(
             'assets/animations/loading.json',
@@ -308,30 +308,30 @@ Widget build(BuildContext context) {
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [
-            Color.fromARGB(255, 113, 135, 231), // Your chosen blue
-            Color.fromARGB(255, 139, 104, 175), // Your chosen purple
+            Color.fromARGB(255, 113, 135, 231),
+            Color.fromARGB(255, 139, 104, 175),
           ],
         ),
       ),
       child: SafeArea(
         child: Column(
           children: [
-            // ✅ Logo Section - Constrained height
+          
             Expanded(
-              flex: 2, // Reduced from 3 to 2
+              flex: 2,
               child: Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     _buildLogo(),
-                    const SizedBox(height: 12), // Reduced from 16
+                    const SizedBox(height: 12),
                     Text(
                       'SmartSaver',
                       style: AppTypography.largeTitle(context).copyWith(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
-                        fontSize: 32, // Reduced from 36
+                        fontSize: 32,
                         shadows: [
                           Shadow(
                             color: Colors.black.withOpacity(0.3),
@@ -341,12 +341,12 @@ Widget build(BuildContext context) {
                         ],
                       ),
                     ),
-                    const SizedBox(height: 6), // Reduced from 8
+                    const SizedBox(height: 6),
                     Text(
                       'Manage Money, Build Wealth',
                       style: AppTypography.caption(context).copyWith(
                         color: Colors.white.withOpacity(0.9),
-                        fontSize: 13, // Reduced from 14
+                        fontSize: 13,
                       ),
                     ),
                   ],
@@ -354,9 +354,9 @@ Widget build(BuildContext context) {
               ),
             ),
 
-            // ✅ Login Form Section - Takes more space
+            
             Expanded(
-              flex: 3, // Increased from 5 to 3 (relative to new flex:2 above)
+              flex: 3,
               child: Container(
                 width: double.infinity,
                 decoration: BoxDecoration(

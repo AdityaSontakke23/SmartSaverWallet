@@ -59,8 +59,8 @@ Widget build(BuildContext context) {
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [
-            Color.fromARGB(255, 113, 135, 231), // Lighter blue
-            Color.fromARGB(255, 139, 104, 175), // Purple
+            Color.fromARGB(255, 113, 135, 231),
+            Color.fromARGB(255, 139, 104, 175),
           ],
         ),
       ),
@@ -69,9 +69,7 @@ Widget build(BuildContext context) {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Spacer(flex: 2), // More space at top
-              
-              // App Logo with scale animation
+              const Spacer(flex: 2),
               TweenAnimationBuilder<double>(
                 tween: Tween(begin: 0.8, end: 1.0),
                 duration: const Duration(milliseconds: 800),
@@ -105,7 +103,7 @@ Widget build(BuildContext context) {
               
               const SizedBox(height: 40),
               
-              // App Name with fade animation
+              
               TweenAnimationBuilder<double>(
                 tween: Tween(begin: 0.0, end: 1.0),
                 duration: const Duration(milliseconds: 1000),
@@ -145,19 +143,19 @@ Widget build(BuildContext context) {
                 ),
               ),
               
-              const Spacer(flex: 2), // Space between text and animation
+              const Spacer(flex: 2),
               
-              // Loading animation at bottom
+              
               SizedBox(
-                width: 200, // ✅ Constrain width
-                height: 200, // ✅ Constrain height
+                width: 200,
+                height: 200,
                 child: Lottie.asset(
                   'assets/animations/loading.json',
                   fit: BoxFit.contain,
                 ),
               ),
               
-              const Spacer(flex: 1), // Less space at bottom
+              const Spacer(flex: 1),
             ],
           ),
         ),

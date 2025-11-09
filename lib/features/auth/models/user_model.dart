@@ -1,13 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-/// App-level user model that mirrors Firestore structure.
+
 class UserModel {
   final String uid;
   final String name;
   final String email;
   final String? photoURL;
   final String currency;
-  final String theme; // 'light', 'dark', or 'system'
+  final String theme;
   final bool notificationsEnabled;
   final DateTime createdAt;
 
@@ -22,7 +22,7 @@ class UserModel {
     required this.createdAt,
   });
 
-  /// Create UserModel from Firestore document snapshot
+
   factory UserModel.fromDocument(DocumentSnapshot doc) {
     final data = doc.data() as Map<String, dynamic>;
     return UserModel(
@@ -38,7 +38,7 @@ class UserModel {
     );
   }
 
-  /// Convert UserModel to Firestore-compatible map
+
   Map<String, dynamic> toDocument() {
     return {
       'profile': {

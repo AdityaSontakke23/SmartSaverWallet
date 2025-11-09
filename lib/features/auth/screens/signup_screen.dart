@@ -81,8 +81,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   Widget _buildLogo() {
   return Container(
-    width: 80, // ✅ Reduced from 100
-    height: 80, // ✅ Reduced from 100
+    width: 80,
+    height: 80,
     decoration: BoxDecoration(
       shape: BoxShape.circle,
       color: Colors.white.withOpacity(0.15),
@@ -94,7 +94,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         ),
       ],
     ),
-    padding: const EdgeInsets.all(12), // ✅ Reduced from 15
+    padding: const EdgeInsets.all(12),
     child: ClipOval(
       child: Image.asset(
         'assets/images/logo/app_logo.png',
@@ -121,7 +121,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           ),
           const SizedBox(height: 24),
           
-          // Name Field
+          
           TextFormField(
             controller: _nameCtrl,
             validator: Validators.name,
@@ -136,7 +136,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           ),
           const SizedBox(height: 16),
           
-          // Email Field
+          
           TextFormField(
             controller: _emailCtrl,
             keyboardType: TextInputType.emailAddress,
@@ -152,7 +152,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           ),
           const SizedBox(height: 16),
           
-          // Password Field
+          
           TextFormField(
             controller: _passCtrl,
             obscureText: true,
@@ -168,7 +168,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           ),
           const SizedBox(height: 16),
           
-          // Confirm Password Field
+          
           TextFormField(
             controller: _confirmCtrl,
             obscureText: true,
@@ -184,7 +184,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           ),
           const SizedBox(height: 24),
           
-          // Sign Up Button
+          
           ElevatedButton(
             onPressed: _loading ? null : _signUp,
             style: ElevatedButton.styleFrom(
@@ -197,11 +197,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
             ),
             child: _loading
                 ? SizedBox(
-                    width: 220, // ✅ Your requested size
+                    width: 220,
                     height: 60,
                     child: Lottie.asset(
                       'assets/animations/loading.json',
-                      fit: BoxFit.fill, // ✅ Your requested fit
+                      fit: BoxFit.fill,
                     ),
                   )
                 : Text(
@@ -215,7 +215,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           ),
           const SizedBox(height: 16),
           
-          // Already have account
+          
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -260,7 +260,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors: [
-              Color.fromARGB(255, 113, 135, 231), // Your gradient
+              Color.fromARGB(255, 113, 135, 231),
               Color.fromARGB(255, 139, 104, 175),
             ],
           ),
@@ -268,7 +268,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         child: SafeArea(
           child: Column(
             children: [
-              // Logo Section
+              
               Expanded(
                 flex: 1,
                 child: Center(
@@ -298,7 +298,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
               ),
 
-              // Sign Up Form Section
+              
               Expanded(
                 flex: 4,
                 child: Container(

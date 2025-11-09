@@ -46,16 +46,14 @@ class _EditBudgetScreenState extends State<EditBudgetScreen> {
   @override
   void initState() {
     super.initState();
-    // ✅ Pre-fill with existing budget data
     _titleController = TextEditingController(text: widget.budget.title);
     _amountController = TextEditingController(text: widget.budget.amount.toStringAsFixed(0));
     _startDate = widget.budget.startDate;
     _endDate = widget.budget.endDate;
     
-    // Try to match category
     _selectedCategory = _categories.firstWhere(
       (cat) => cat.name.toLowerCase() == widget.budget.category.toLowerCase(),
-      orElse: () => _categories.last, // Default to 'Other'
+      orElse: () => _categories.last,
     );
   }
 
@@ -76,7 +74,7 @@ class _EditBudgetScreenState extends State<EditBudgetScreen> {
           : AppColors.lightPrimaryBackground,
       body: CustomScrollView(
         slivers: [
-          // ✨ Beautiful gradient app bar
+          
           SliverAppBar(
             expandedHeight: 200,
             pinned: true,
@@ -118,7 +116,7 @@ class _EditBudgetScreenState extends State<EditBudgetScreen> {
             ),
           ),
 
-          // Content
+          
           SliverToBoxAdapter(
             child: Form(
               key: _formKey,
@@ -127,29 +125,29 @@ class _EditBudgetScreenState extends State<EditBudgetScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    // Budget Title
+                    
                     _buildSectionTitle('Budget Title'),
                     const SizedBox(height: 12),
                     _buildTitleInput(),
                     const SizedBox(height: 24),
 
-                    // Select Category
+                    
                     _buildSectionTitle('Select Category'),
                     const SizedBox(height: 12),
                     _buildCategoryGrid(context),
                     const SizedBox(height: 24),
 
-                    // Set Amount
+                    
                     _buildSectionTitle('Set Budget Amount'),
                     const SizedBox(height: 12),
                     _buildAmountSection(context),
                     const SizedBox(height: 24),
 
-                    // Current Spent (Read-only info)
+                    
                     _buildSpentInfo(),
                     const SizedBox(height: 24),
 
-                    // Budget Period
+                    
                     _buildSectionTitle('Budget Period'),
                     const SizedBox(height: 12),
                     _buildPeriodSection(context),
@@ -159,7 +157,7 @@ class _EditBudgetScreenState extends State<EditBudgetScreen> {
                     
                     const SizedBox(height: 32),
 
-                    // Update Button
+                    
                     SizedBox(
                       height: 56,
                       child: GradientButton(
@@ -407,7 +405,7 @@ class _EditBudgetScreenState extends State<EditBudgetScreen> {
     );
   }
 
-  // ✅ Show current spent amount (read-only)
+  
   Widget _buildSpentInfo() {
     final isDark = Theme.of(context).brightness == Brightness.dark;
     final progress = widget.budget.amount > 0 

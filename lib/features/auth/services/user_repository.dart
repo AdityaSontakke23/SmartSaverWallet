@@ -1,4 +1,3 @@
-// lib/features/auth/services/user_repository.dart
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../../core/constants/app_constants.dart';
 import '../../../core/services/auth_service.dart';
@@ -10,17 +9,17 @@ class UserRepository {
   DocumentReference<Map<String, dynamic>> get _doc =>
       _db.collection(AppConstants.colUsers).doc(_auth.uidOrThrow);
 
-  // Stream the whole user doc (profile + settings)
+
   Stream<DocumentSnapshot<Map<String, dynamic>>> streamUserDoc() {
     return _doc.snapshots();
   }
 
-  // Update profile subfields
+
   Future<void> updateProfile({
     String? name,
     String? photoURL,
     String? currency,
-    String? theme, // 'light' | 'dark' | 'system'
+    String? theme,
     bool? notificationsEnabled,
   }) async {
     final data = <String, dynamic>{};
@@ -46,7 +45,7 @@ class UserRepository {
     await _doc.set(data, SetOptions(merge: true));
   }
 
-  // Update settings subfields
+
   Future<void> updateSettings({
     bool? budgetAlerts,
     bool? goalReminders,

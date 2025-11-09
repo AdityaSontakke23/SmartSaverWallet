@@ -8,7 +8,6 @@ class AuthRepository {
   final AuthService _authService = AuthService();
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-  // Sign up: create auth user, ensure users/{uid} exists, set display name, then read user doc
   Future<UserModel> signUp({
     required String name,
     required String email,
@@ -18,10 +17,10 @@ class AuthRepository {
       email,
       password,
       displayName: name,
-    ); // AuthService ensures users/{uid} with profile/settings
+    );
     final uid = cred.user!.uid;
 
-    // Optionally update profile name field in Firestore map
+    
     await _authService.updateProfile(name: name);
 
     final snapshot =
@@ -29,7 +28,7 @@ class AuthRepository {
     return UserModel.fromDocument(snapshot);
   }
 
-  // Login: authenticate, then fetch users/{uid}
+  
   Future<UserModel> login({
     required String email,
     required String password,
@@ -42,12 +41,12 @@ class AuthRepository {
     return UserModel.fromDocument(snapshot);
   }
 
-  // Logout
+  
   Future<void> logout() async {
     await _authService.logout();
   }
 
-  // Get current user model (reads users/{uid})
+  
   Future<UserModel?> getCurrentUser() async {
     final user = _authService.currentUser;
     if (user == null) return null;
@@ -57,14 +56,14 @@ class AuthRepository {
     return UserModel.fromDocument(snapshot);
   }
 
-// Password reset
+
 Future<void> resetPassword({required String email}) async {
   await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
 }
 
 
 
-  // Stream auth state mapped to users/{uid}
+
   Stream<UserModel?> userChanges() {
     return _authService.authStateChanges().asyncMap((user) async {
       if (user == null) return null;

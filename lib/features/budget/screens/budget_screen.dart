@@ -36,7 +36,7 @@ class _BudgetScreenState extends State<BudgetScreen> {
     super.dispose();
   }
 
-  // Delete budget function
+  
   Future<void> _deleteBudget(String budgetId, String title) async {
     final confirmed = await showDialog<bool>(
       context: context,
@@ -81,9 +81,9 @@ class _BudgetScreenState extends State<BudgetScreen> {
     }
   }
 
-  // Edit budget function
+  
   Future<void> _editBudget(BudgetModel budget) async {
-    // Navigate to EditBudgetScreen
+    
     await Navigator.push(
       context,
       MaterialPageRoute(
@@ -92,7 +92,7 @@ class _BudgetScreenState extends State<BudgetScreen> {
     );
   }
 
-  // Add spend to budget function
+  
   Future<void> _addSpendToBudget(BudgetModel budget) async {
     _spendCtrl.clear();
 
@@ -162,7 +162,6 @@ class _BudgetScreenState extends State<BudgetScreen> {
     );
   }
   Future<void> _showAddBudgetDialog() async {
-    // Navigate to AddBudgetScreen instead of showing dialog
     await Navigator.push(
       context,
       MaterialPageRoute(
