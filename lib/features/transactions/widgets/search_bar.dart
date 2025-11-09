@@ -16,7 +16,7 @@ class TransactionSearchBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     
-    // ✅ Theme-aware text color
+    
     final textColor = isDarkMode
         ? Colors.white
         : Theme.of(context).colorScheme.onSurface;
@@ -30,9 +30,8 @@ class TransactionSearchBar extends StatelessWidget {
       decoration: BoxDecoration(
         color: isDarkMode
             ? AppColors.darkSurfaceColor
-            : const Color(0xFFF9FAFB), // ✅ Light mode: very light gray
+            : const Color(0xFFF9FAFB),
         borderRadius: BorderRadius.circular(12),
-        // ✅ Add border for light mode
         border: !isDarkMode
             ? Border.all(
                 color: Theme.of(context).colorScheme.outline.withOpacity(0.3),
@@ -44,12 +43,12 @@ class TransactionSearchBar extends StatelessWidget {
         controller: controller,
         onChanged: onChanged,
         style: AppTextStyles.bodyMedium(context).copyWith(
-          color: textColor, // ✅ Fixed: Theme-aware
+          color: textColor,
         ),
         decoration: InputDecoration(
           hintText: 'Search transactions...',
           hintStyle: AppTextStyles.bodyMedium(context).copyWith(
-            color: hintColor, // ✅ Fixed: Theme-aware
+            color: hintColor,
           ),
           prefixIcon: Icon(
             Icons.search,

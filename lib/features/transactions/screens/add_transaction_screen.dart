@@ -11,7 +11,7 @@ import '../widgets/transaction_form_button.dart';
 import '../widgets/transaction_type_selector.dart';
 
 class AddTransactionScreen extends StatefulWidget {
-  final TransactionModel? transaction; // ✅ Optional transaction for edit mode
+  final TransactionModel? transaction;
 
   const AddTransactionScreen({
     Key? key,
@@ -31,7 +31,7 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
   late DateTime _selectedDate;
   bool _isLoading = false;
 
-  // ✅ Check if we're in edit mode
+
   bool get _isEditMode => widget.transaction != null;
 
   final List<Category> _expenseCategories = [
@@ -56,7 +56,7 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
   void initState() {
     super.initState();
     
-    // ✅ Pre-fill data if in edit mode
+
     if (_isEditMode) {
       final tx = widget.transaction!;
       _amountController.text = tx.amount.toStringAsFixed(0);
@@ -64,7 +64,7 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
       _selectedType = tx.type;
       _selectedDate = tx.date;
       
-      // Find matching category
+
       final allCategories = [..._expenseCategories, ..._incomeCategories];
       _selectedCategory = allCategories.firstWhere(
         (cat) => cat.name.toLowerCase() == tx.category.toLowerCase(),
@@ -100,7 +100,7 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
 
       final repo = TransactionsRepository();
 
-      // ✅ Update or Add based on mode
+
       if (_isEditMode) {
         await repo.updateTransaction(
           widget.transaction!.id,
@@ -159,7 +159,7 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
         backgroundColor: Colors.transparent,
         elevation: 0,
         title: Text(
-          _isEditMode ? 'Edit Transaction' : 'Add Transaction', // ✅ Dynamic title
+          _isEditMode ? 'Edit Transaction' : 'Add Transaction',
           style: TextStyle(
             color: AppColors.primaryText(context),
             fontSize: 20,
@@ -179,11 +179,11 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              // ✅ Disable type selector in edit mode with visual feedback
+              
               Opacity(
-                opacity: _isEditMode ? 0.5 : 1.0, // Dim it in edit mode
+                opacity: _isEditMode ? 0.5 : 1.0,
                 child: IgnorePointer(
-                  ignoring: _isEditMode, // Block touches in edit mode
+                  ignoring: _isEditMode,
                   child: TransactionTypeSelector(
                     selectedType: _selectedType,
                     onTypeSelected: (type) {

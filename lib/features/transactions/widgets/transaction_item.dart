@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../core/constants/app_constants.dart';
 import '../../../core/theme/text_styles.dart';
 import '../models/transaction_model.dart';
-import '../../../core/constants/colors.dart'; // ✅ Added this
+import '../../../core/constants/colors.dart';
 
 
 class TransactionItem extends StatelessWidget {
@@ -22,14 +22,14 @@ class TransactionItem extends StatelessWidget {
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     final isIncome = transaction.type.toLowerCase() == AppConstants.txIncome;
     
-    // ✅ Use theme-aware colors for income/expense
+    
     final color = isIncome 
         ? AppColors.success 
-        : (isDarkMode ? const Color(0xFFEF4444) : const Color(0xFFDC2626)); // error color
+        : (isDarkMode ? const Color(0xFFEF4444) : const Color(0xFFDC2626));
     
     final sign = isIncome ? '+' : '-';
     
-    // ✅ Theme-aware icon color
+    
     final iconColor = isDarkMode
         ? Colors.white.withOpacity(0.7)
         : Theme.of(context).colorScheme.onSurface.withOpacity(0.6);
@@ -41,11 +41,11 @@ class TransactionItem extends StatelessWidget {
       ),
       title: Text(
         transaction.description,
-        style: AppTextStyles.h4(context), // ✅ Already theme-aware
+        style: AppTextStyles.h4(context),
       ),
       subtitle: Text(
         '${transaction.category} • ${transaction.date.toLocal().toString().split(' ')[0]}',
-        style: AppTextStyles.caption(context), // ✅ Already theme-aware
+        style: AppTextStyles.caption(context),
       ),
       trailing: Row(
         mainAxisSize: MainAxisSize.min,
@@ -54,14 +54,14 @@ class TransactionItem extends StatelessWidget {
             '$sign\₹${transaction.amount.toStringAsFixed(2)}',
             style: AppTextStyles.bodyMedium(context).copyWith(
               color: color,
-              fontWeight: FontWeight.w600, // ✅ Added: Make amount more prominent
+              fontWeight: FontWeight.w600,
             ),
           ),
           const SizedBox(width: 8),
           IconButton(
             icon: Icon(
               Icons.delete_outline,
-              color: iconColor, // ✅ Fixed: Theme-aware
+              color: iconColor,
             ),
             onPressed: onDelete,
             tooltip: 'Delete',

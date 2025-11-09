@@ -37,7 +37,7 @@ class CategoryPicker extends StatelessWidget {
               ? [AppColors.orangeStart, AppColors.orangeEnd]
               : [AppColors.greenStart, AppColors.greenEnd];
 
-          // ✅ Theme-aware colors for unselected state
+          
           final unselectedIconColor = isDarkMode
               ? Colors.white.withOpacity(0.7)
               : Theme.of(context).colorScheme.onSurface.withOpacity(0.7);
@@ -69,7 +69,7 @@ class CategoryPicker extends StatelessWidget {
                           : Theme.of(context).colorScheme.outline.withOpacity(0.3),
                   width: 1,
                 ),
-                // ✅ Add shadow for light mode
+                
                 boxShadow: !isDarkMode && !isSelected
                     ? [
                         BoxShadow(
@@ -87,8 +87,8 @@ class CategoryPicker extends StatelessWidget {
                     category.icon,
                     size: 32,
                     color: isSelected
-                        ? Colors.white // Selected: always white on gradient
-                        : unselectedIconColor, // ✅ Fixed: Theme-aware
+                        ? Colors.white 
+                        : unselectedIconColor,
                   )
                       .animate(target: isSelected ? 1 : 0)
                       .scale(
@@ -100,8 +100,8 @@ class CategoryPicker extends StatelessWidget {
                     category.name,
                     style: AppTextStyles.bodySmall(context).copyWith(
                       color: isSelected
-                          ? Colors.white // Selected: always white on gradient
-                          : unselectedTextColor, // ✅ Fixed: Theme-aware
+                          ? Colors.white
+                          : unselectedTextColor,
                       fontWeight:
                           isSelected ? FontWeight.bold : FontWeight.normal,
                     ),

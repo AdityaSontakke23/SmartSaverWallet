@@ -34,7 +34,7 @@ class TransactionFormButton extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),
-          elevation: 0, // ✅ Added: No elevation
+          elevation: 0,
         ),
         child: Ink(
           decoration: BoxDecoration(
@@ -54,7 +54,7 @@ class TransactionFormButton extends StatelessWidget {
                 : Text(
                     text,
                     style: AppTextStyles.button(context).copyWith(
-                      color: Colors.white, // ✅ Always white on gradient (correct)
+                      color: Colors.white,
                     ),
                   ),
           ),

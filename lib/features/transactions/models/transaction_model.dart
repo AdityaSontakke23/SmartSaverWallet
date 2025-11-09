@@ -5,7 +5,7 @@ class TransactionModel {
   final String id;
   final String uid;
   final double amount;
-  final String type; // 'income' | 'expense'
+  final String type;
   final String category;
   final String description;
   final DateTime date;
@@ -39,7 +39,7 @@ class TransactionModel {
       type: data[AppConstants.fType] as String? ?? AppConstants.txExpense,
       category: data[AppConstants.fCategory] as String? ?? '',
       description: (data[AppConstants.fDescription] as String?) ??
-          (data['title'] as String? ?? ''), // backward compatibility
+          (data['title'] as String? ?? ''),
       date: tsDate is Timestamp ? tsDate.toDate() : DateTime.fromMillisecondsSinceEpoch(0),
       createdAt: tsCreated is Timestamp ? tsCreated.toDate() : null,
       tags: (data[AppConstants.fTags] as List?)?.cast<String>() ?? const <String>[],

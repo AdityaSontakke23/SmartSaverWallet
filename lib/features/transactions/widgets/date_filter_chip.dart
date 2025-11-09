@@ -24,15 +24,15 @@ class DateFilterChip extends StatelessWidget {
       label: Text(label),
       labelStyle: AppTextStyles.bodySmall(context).copyWith(
         color: isSelected
-            ? Colors.white // Selected: white on teal
+            ? Colors.white
             : isDarkMode
-                ? Colors.white70 // ✅ Dark mode: light gray
-                : Theme.of(context).colorScheme.onSurface, // ✅ Light mode: dark text
+                ? Colors.white70
+                : Theme.of(context).colorScheme.onSurface,
         fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
       ),
       backgroundColor: isDarkMode
-          ? AppColors.darkSurfaceColor // ✅ Dark mode: dark surface
-          : const Color(0xFFF9FAFB), // ✅ Light mode: very light gray
+          ? AppColors.darkSurfaceColor
+          : const Color(0xFFF9FAFB),
       selectedColor: AppColors.tealStart,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20),

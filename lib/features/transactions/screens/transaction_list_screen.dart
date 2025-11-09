@@ -1,4 +1,3 @@
-// lib/features/transactions/screens/transaction_list_screen.dart
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../../../core/constants/app_constants.dart';
@@ -25,7 +24,7 @@ class TransactionListScreen extends StatelessWidget {
     await repo.deleteTransaction(id);
   }
 
-  // ✅ NEW: Quick Actions Menu
+  
   void _showQuickActions(BuildContext context, TransactionModel tx) {
     HapticFeedback.mediumImpact();
     
@@ -39,7 +38,7 @@ class TransactionListScreen extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            // Drag handle
+            
             Container(
               width: 40,
               height: 4,
@@ -50,7 +49,7 @@ class TransactionListScreen extends StatelessWidget {
               ),
             ),
             
-            // Edit option
+            
             ListTile(
               leading: Container(
                 padding: const EdgeInsets.all(8),
@@ -72,7 +71,7 @@ class TransactionListScreen extends StatelessWidget {
               },
             ),
             
-            // Duplicate option
+            
             ListTile(
               leading: Container(
                 padding: const EdgeInsets.all(8),
@@ -117,7 +116,7 @@ class TransactionListScreen extends StatelessWidget {
               },
             ),
             
-            // Delete option
+            
             ListTile(
               leading: Container(
                 padding: const EdgeInsets.all(8),
@@ -193,7 +192,7 @@ class TransactionListScreen extends StatelessWidget {
 
           return Column(
             children: [
-              // Single Add Transaction Button
+              
               Container(
                 padding: const EdgeInsets.all(16),
                 child: SizedBox(
@@ -225,7 +224,7 @@ class TransactionListScreen extends StatelessWidget {
                 ),
               ),
               
-              // Transaction List with Long Press
+              
               Expanded(
                 child: ListView.separated(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -233,7 +232,7 @@ class TransactionListScreen extends StatelessWidget {
                   separatorBuilder: (_, __) => const SizedBox(height: 12),
                   itemBuilder: (context, index) {
                     final tx = items[index];
-                    // ✅ Wrapped with GestureDetector for long press
+                    
                     return GestureDetector(
                       onLongPress: () => _showQuickActions(context, tx),
                       child: TransactionItem(
@@ -262,7 +261,7 @@ class TransactionListScreen extends StatelessWidget {
   }
 }
 
-// Extension to add gradient to button
+
 extension GradientButton on Widget {
   Widget wrapWithGradient(BuildContext context) {
     return Ink(

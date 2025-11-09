@@ -20,7 +20,7 @@ class TransactionTypeSelector extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.cardBackground(context),
         borderRadius: BorderRadius.circular(16),
-        // ✅ Add border for light mode
+        
         border: Theme.of(context).brightness == Brightness.light
             ? Border.all(
                 color: Theme.of(context).colorScheme.outline.withOpacity(0.3),
@@ -70,7 +70,7 @@ class _TypeButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     
-    // ✅ Theme-aware unselected text color
+    
     final unselectedTextColor = isDarkMode
         ? Colors.white.withOpacity(0.5)
         : Theme.of(context).colorScheme.onSurface.withOpacity(0.6);
@@ -94,8 +94,8 @@ class _TypeButton extends StatelessWidget {
             text,
             style: AppTextStyles.button(context).copyWith(
               color: isSelected
-                  ? Colors.white // Selected: white on gradient
-                  : unselectedTextColor, // ✅ Fixed: Theme-aware
+                  ? Colors.white
+                  : unselectedTextColor,
             ),
           ),
         ),

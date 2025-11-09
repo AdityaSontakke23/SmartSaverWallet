@@ -17,7 +17,7 @@ class NoteInput extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     
-    // ✅ Theme-aware colors
+    
     final iconColor = isDarkMode
         ? Colors.white.withOpacity(0.7)
         : Theme.of(context).colorScheme.onSurface.withOpacity(0.7);
@@ -39,19 +39,19 @@ class NoteInput extends StatelessWidget {
         maxLines: 3,
         style: GoogleFonts.poppins(
           fontSize: 16,
-          color: AppColors.primaryText(context), // ✅ Already theme-aware
+          color: AppColors.primaryText(context),
         ),
         decoration: InputDecoration(
           hintText: 'Add a note',
           hintStyle: GoogleFonts.poppins(
             fontSize: 16,
-            color: AppColors.primaryText(context).withOpacity(0.5), // ✅ Already theme-aware
+            color: AppColors.primaryText(context).withOpacity(0.5),
           ),
           contentPadding: const EdgeInsets.all(16),
           border: InputBorder.none,
           prefixIcon: Icon(
             Icons.note_outlined,
-            color: iconColor, // ✅ Fixed: Theme-aware
+            color: iconColor,
           ),
         ),
         onTap: onTap,

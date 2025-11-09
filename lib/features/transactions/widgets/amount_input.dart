@@ -22,7 +22,7 @@ class AmountInput extends StatelessWidget {
         ? [AppColors.orangeStart, AppColors.orangeEnd]
         : [AppColors.greenStart, AppColors.greenEnd];
 
-    // ✅ Get theme-aware text color
+    
     final textColor = Theme.of(context).brightness == Brightness.dark
         ? Colors.white
         : Theme.of(context).colorScheme.onSurface;
@@ -40,7 +40,7 @@ class AmountInput extends StatelessWidget {
           end: Alignment.bottomRight,
         ),
         borderRadius: BorderRadius.circular(24),
-        // ✅ Add subtle border for light mode visibility
+        
         border: Border.all(
           color: Theme.of(context).brightness == Brightness.dark
               ? Colors.transparent
@@ -53,7 +53,7 @@ class AmountInput extends StatelessWidget {
           Text(
             '₹',
             style: AppTextStyles.h1(context).copyWith(
-              color: textColor, // ✅ Fixed: Use theme-aware color
+              color: textColor,
             ),
           ),
           TextFormField(
@@ -61,14 +61,14 @@ class AmountInput extends StatelessWidget {
             keyboardType: const TextInputType.numberWithOptions(decimal: true),
             textAlign: TextAlign.center,
             style: AppTextStyles.amountLarge(context).copyWith(
-              color: textColor, // ✅ Fixed: Use theme-aware color
+              color: textColor,
               fontSize: 48,
             ),
             decoration: InputDecoration(
               border: InputBorder.none,
               hintText: '0.00',
               hintStyle: AppTextStyles.amountLarge(context).copyWith(
-                color: textColor.withOpacity(0.5), // ✅ Fixed: Use theme-aware color
+                color: textColor.withOpacity(0.5),
                 fontSize: 48,
               ),
             ),
@@ -90,7 +90,7 @@ class AmountInput extends StatelessWidget {
           Text(
             'Tap to enter amount',
             style: AppTextStyles.bodySmall(context).copyWith(
-              color: textColor.withOpacity(0.7), // ✅ Fixed: Use theme-aware color
+              color: textColor.withOpacity(0.7),
             ),
           ),
         ],

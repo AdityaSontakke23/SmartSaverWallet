@@ -19,15 +19,15 @@ class FeatureCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     
-    // ✅ Get the main gradient color
+    
     final gradientColor = gradient.colors.first;
     
-    // ✅ Theme-aware text colors
+    
     final titleColor = isDarkMode
         ? Colors.white
         : gradientColor.computeLuminance() > 0.5
-            ? Colors.black87 // If light background, use dark text
-            : Colors.white; // If dark background, use white text
+            ? Colors.black87
+            : Colors.white;
     
     final subtitleColor = isDarkMode
         ? Colors.white70
@@ -39,9 +39,8 @@ class FeatureCard extends StatelessWidget {
       width: 100,
       height: 100,
       decoration: BoxDecoration(
-        gradient: gradient.scale(isDarkMode ? 0.15 : 0.2), // ✅ Adjust opacity for light mode
+        gradient: gradient.scale(isDarkMode ? 0.15 : 0.2),
         borderRadius: BorderRadius.circular(16),
-        // ✅ Add border for light mode visibility
         border: !isDarkMode
             ? Border.all(
                 color: gradientColor.withOpacity(0.3),
@@ -55,20 +54,20 @@ class FeatureCard extends StatelessWidget {
           Icon(
             icon,
             size: 40,
-            color: gradientColor, // Keep gradient color for icon
+            color: gradientColor,
           ),
           const SizedBox(height: 8),
           Text(
             title,
             style: AppTextStyles.bodySmall(context).copyWith(
               fontWeight: FontWeight.w600,
-              color: titleColor, // ✅ Fixed: Theme-aware
+              color: titleColor,
             ),
           ),
           Text(
             subtitle,
             style: AppTextStyles.overline(context).copyWith(
-              color: subtitleColor, // ✅ Fixed: Theme-aware
+              color: subtitleColor,
             ),
             textAlign: TextAlign.center,
           ),

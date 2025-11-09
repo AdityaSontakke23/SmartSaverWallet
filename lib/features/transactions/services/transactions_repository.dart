@@ -1,4 +1,3 @@
-// lib/features/transactions/services/transactions_repository.dart
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../../core/constants/app_constants.dart';
 import '../../../core/services/auth_service.dart';
@@ -12,11 +11,11 @@ class TransactionsRepository {
 
   String get _uid => _auth.uidOrThrow;
 
-  // Read: stream all transactions for current user with optional filters
+  
   Stream<QuerySnapshot<Map<String, dynamic>>> streamUserTransactions({
     DateTime? start,
     DateTime? end,
-    String? type, // 'income' | 'expense'
+    String? type,
     int? limit,
   }) {
     Query<Map<String, dynamic>> q =
@@ -38,10 +37,10 @@ class TransactionsRepository {
     return q.snapshots();
   }
 
-  // Create: add a transaction; optionally link to a budget or goal with atomic increments
+  
   Future<DocumentReference<Map<String, dynamic>>> addTransaction({
     required double amount,
-    required String type, // AppConstants.txIncome / txExpense
+    required String type,
     required String category,
     String? description,
     required DateTime date,
@@ -68,7 +67,7 @@ class TransactionsRepository {
 
     batch.set(txRef, data);
 
-    // If expense is tied to a budget, increment spent atomically
+    
     if (type == AppConstants.txExpense && budgetId != null) {
       final budgetRef =
           _db.collection(AppConstants.colBudgets).doc(budgetId);
@@ -77,7 +76,7 @@ class TransactionsRepository {
       });
     }
 
-    // If contributing to a goal, increment currentAmount atomically
+    
     if (goalId != null) {
       final goalRef = _db.collection(AppConstants.colGoals).doc(goalId);
       batch.update(goalRef, {
@@ -89,7 +88,7 @@ class TransactionsRepository {
     return txRef;
   }
 
-// Update: Enhanced version that handles budget/goal reconciliation
+
 Future<void> updateTransaction(
   String txId, {
   double? amount,
@@ -115,7 +114,7 @@ Future<void> updateTransaction(
   final batch = _db.batch();
   final data = <String, dynamic>{};
 
-  // Build update data
+  
   if (amount != null) data[AppConstants.fAmount] = amount;
   if (type != null) data[AppConstants.fType] = type;
   if (category != null) data[AppConstants.fCategory] = category;
@@ -125,10 +124,10 @@ Future<void> updateTransaction(
 
   if (data.isEmpty) return;
 
-  // Update transaction
+  
   batch.update(docRef, data);
 
-  // Handle budget reconciliation if amount changed
+  
   if (amount != null && amount != oldAmount && budgetId != null) {
     if (oldType == AppConstants.txExpense || type == AppConstants.txExpense) {
       final budgetRef = _db.collection(AppConstants.colBudgets).doc(budgetId);
@@ -139,7 +138,7 @@ Future<void> updateTransaction(
     }
   }
 
-  // Handle goal reconciliation if amount changed
+  
   if (amount != null && amount != oldAmount && goalId != null) {
     final goalRef = _db.collection(AppConstants.colGoals).doc(goalId);
     final delta = amount - oldAmount;
@@ -152,7 +151,7 @@ Future<void> updateTransaction(
 }
 
 
-  // Delete: remove transaction (does not auto-decrement budget/goal)
+  
   Future<void> deleteTransaction(String txId) async {
     final docRef = _col.doc(txId);
     await _ensureOwner(docRef);

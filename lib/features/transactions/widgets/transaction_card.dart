@@ -72,7 +72,7 @@ class TransactionCard extends StatelessWidget {
           BoxShadow(
             color: isDarkMode
                 ? Colors.black26
-                : Colors.black.withOpacity(0.08), // ✅ Lighter shadow for light mode
+                : Colors.black.withOpacity(0.08),
             blurRadius: 8,
             offset: const Offset(0, 4),
           ),
@@ -95,14 +95,14 @@ class TransactionCard extends StatelessWidget {
         ),
         title: Text(
           data['description'] as String,
-          style: AppTextStyles.h4(context), // ✅ Already theme-aware
+          style: AppTextStyles.h4(context),
         ),
         subtitle: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              '$category • ${DateFormatter.format(date.toDate())}', // ✅ Changed - to •
-              style: AppTextStyles.bodySmall(context), // ✅ Already theme-aware
+              '$category • ${DateFormatter.format(date.toDate())}',
+              style: AppTextStyles.bodySmall(context),
             ),
             if (tags.isNotEmpty) ...[
               const SizedBox(height: 4),
@@ -118,7 +118,7 @@ class TransactionCard extends StatelessWidget {
                           decoration: BoxDecoration(
                             color: isDarkMode
                                 ? AppColors.darkSurfaceColor
-                                : AppColors.tealStart.withOpacity(0.1), // ✅ Light mode: teal tint
+                                : AppColors.tealStart.withOpacity(0.1),
                             borderRadius: BorderRadius.circular(8),
                             border: Border.all(
                               color: AppColors.tealStart.withOpacity(0.3),

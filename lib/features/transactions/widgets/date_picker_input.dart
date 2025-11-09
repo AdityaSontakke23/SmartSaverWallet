@@ -55,7 +55,7 @@ class DatePickerInput extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     
-    // ✅ Theme-aware colors
+    
     final iconColor = isDarkMode
         ? Colors.white.withOpacity(0.7)
         : Theme.of(context).colorScheme.onSurface.withOpacity(0.7);
@@ -85,14 +85,14 @@ class DatePickerInput extends StatelessWidget {
             children: [
               Icon(
                 Icons.calendar_today_outlined,
-                color: iconColor, // ✅ Fixed: Theme-aware
+                color: iconColor,
               ),
               const SizedBox(width: 12),
               Text(
                 DateFormat('d MMMM, y').format(selectedDate),
                 style: GoogleFonts.poppins(
                   fontSize: 16,
-                  color: textColor, // ✅ Fixed: Theme-aware
+                  color: textColor,
                 ),
               ),
             ],

@@ -49,7 +49,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> with SingleTick
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        // Illustration Container
+        
         Container(
           width: 200,
           height: 200,
@@ -72,7 +72,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> with SingleTick
         ),
         const SizedBox(height: 32),
         
-        // Heading
+        
         Text(
           '📊 Track Every Rupee',
           style: AppTextStyles.h2(context),
@@ -80,7 +80,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> with SingleTick
         ),
         const SizedBox(height: 12),
         
-        // Subtitle
+        
         Text(
           'Start your financial journey by\nadding your first transaction',
           style: AppTextStyles.bodyMedium(context),
@@ -88,7 +88,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> with SingleTick
         ),
         const SizedBox(height: 40),
         
-        // Feature Cards Row
+        
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Row(
@@ -123,7 +123,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> with SingleTick
         ),
         const SizedBox(height: 40),
         
-        // Example Transaction Card
+        
         Container(
           margin: const EdgeInsets.symmetric(horizontal: 40),
           padding: const EdgeInsets.all(16),
@@ -150,7 +150,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> with SingleTick
         ),
         const SizedBox(height: 40),
         
-        // Add Transaction Button
+        
         Container(
           margin: const EdgeInsets.symmetric(horizontal: 40),
           child: ElevatedButton.icon(
@@ -369,7 +369,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> with SingleTick
                           icon: const Icon(Icons.filter_list),
                           color: Colors.white,
                           onPressed: () {
-                            // TODO: Show filter bottom sheet
+                            
                           },
                         ),
                       ),
@@ -422,14 +422,14 @@ class _TransactionsScreenState extends State<TransactionsScreen> with SingleTick
                         setState(() {
                           _selectedDateFilter = 'Custom';
                         });
-                        // TODO: Show date range picker
+                        
                       },
                     ),
                   ],
                 ),
               ),
               
-              // Transactions List
+              
               Expanded(
                 child: _buildTransactionsList(snapshot.data!.docs),
               ),
