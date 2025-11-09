@@ -1,10 +1,9 @@
-// lib/core/routes/routes.dart
 import 'package:flutter/material.dart';
 
 // Auth
 import 'package:smartsaverwallet/features/auth/screens/splash_screen.dart';
 import 'package:smartsaverwallet/features/auth/screens/login_screen.dart';
-// If your class name is SignUpScreen or RegisterScreen, import with alias:
+
 import 'package:smartsaverwallet/features/auth/screens/signup_screen.dart' as signups;
 
 // Home
@@ -43,15 +42,14 @@ ThemeSetter _extractThemeSetter(Object? args) {
   if (args is Map && args['onThemeChange'] is ThemeSetter) {
     return args['onThemeChange'] as ThemeSetter;
   }
-  // Safe no-op fallback to prevent crashes if argument is temporarily omitted
+
   return (ThemeMode _) {};
 }
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
-      // Splash is provided via `home:` in App so we typically won't hit this case,
-      // but this keeps it available if you navigate to it explicitly.
+
       case RoutePaths.splash: {
         final onThemeChange = _extractThemeSetter(settings.arguments);
         return MaterialPageRoute(builder: (_) => SplashScreen(onThemeChange: onThemeChange));
@@ -61,8 +59,6 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => LoginScreen(onThemeChange: onThemeChange));
       }
       case RoutePaths.signup: {
-        // Replace `signups.SignupScreen()` with the exact class exported by your file:
-        // e.g., `signups.SignUpScreen()` or `signups.RegisterScreen()`.
         final onThemeChange = _extractThemeSetter(settings.arguments);
         return MaterialPageRoute(builder: (_) => signups.SignUpScreen(onThemeChange: onThemeChange,));
       }

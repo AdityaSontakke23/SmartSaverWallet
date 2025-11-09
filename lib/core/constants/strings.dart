@@ -73,8 +73,8 @@ class AppStrings {
   static const String success = 'Success!';
   static const String error = 'Error';
   static const String noData = 'No data available';
-  static const String loading = 'Loading...';
-  static const String pleaseWait = 'Please wait...';
+  static const String loading = 'Loading';
+  static const String pleaseWait = 'Please wait';
   
   // Validation Messages
   static const String fieldRequired = 'This field is required';

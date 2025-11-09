@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppTypography {
-  // Helper method to get theme-aware colors
   static Color _primaryText(BuildContext context) {
     return Theme.of(context).brightness == Brightness.dark
         ? Colors.white
@@ -15,7 +14,7 @@ class AppTypography {
         : const Color(0xFF6B7280);
   }
 
-  // ==================== TEXT STYLES ====================
+  //Text Styles
   
   static TextStyle largeTitle(BuildContext context) => GoogleFonts.poppins(
         fontSize: 28,
@@ -56,10 +55,10 @@ class AppTypography {
   static TextStyle buttonText(BuildContext context) => GoogleFonts.poppins(
         fontSize: 16,
         fontWeight: FontWeight.w600,
-        color: Colors.white, // Buttons always use white text on colored background
+        color: Colors.white,
       );
 
-  // ==================== HELPER STYLES ====================
+
   
   static TextStyle balanceAmount(BuildContext context) => GoogleFonts.poppins(
         fontSize: 36,

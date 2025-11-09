@@ -1,33 +1,33 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  // ==================== DARK MODE COLORS ====================
+  // Dark Mode
   
-  // Background Colors - Dark
+
   static const Color darkPrimaryBackground = Color(0xFF0F1419); // Deep navy-black
   static const Color darkCardBackground = Color(0xFF1A1F29); // Elevated dark
   static const Color darkSurfaceColor = Color(0xFF252A34); // Surface elements
 
-  // Text Colors - Dark
+
   static const Color darkPrimaryText = Color(0xFFFFFFFF); // White
   static const Color darkSecondaryText = Color(0xFFB0B8C1); // Light gray
   static const Color darkAccentText = Color(0xFF00D4FF); // Cyan
 
-  // ==================== LIGHT MODE COLORS ====================
+  // Light Mode
   
-  // Background Colors - Light
+
   static const Color lightPrimaryBackground = Color(0xFFF5F7FA); // Light gray-blue
   static const Color lightCardBackground = Color(0xFFFFFFFF); // Pure white
   static const Color lightSurfaceColor = Color(0xFFF9FAFB); // Very light gray
 
-  // Text Colors - Light
+ 
   static const Color lightPrimaryText = Color(0xFF1A1A1A); // Almost black
   static const Color lightSecondaryText = Color(0xFF6B7280); // Medium gray
   static const Color lightAccentText = Color(0xFF0099CC); // Teal-blue
 
-  // ==================== THEME-AWARE GETTERS ====================
+ 
   
-  // These will be accessed via context
+
   static Color primaryBackground(BuildContext context) {
     return Theme.of(context).brightness == Brightness.dark
         ? darkPrimaryBackground
@@ -64,9 +64,9 @@ class AppColors {
         : lightAccentText;
   }
 
-  // ==================== STATIC COLORS (Same in both themes) ====================
+
   
-  // Gradient Colors - Start Points (work in both themes)
+  // Gradients
   static const Color tealStart = Color(0xFF00D4FF);
   static const Color tealEnd = Color(0xFF0099FF);
   static const Color purpleStart = Color(0xFF8B5CF6);
@@ -78,7 +78,7 @@ class AppColors {
   static const Color blueStart = Color(0xFF4A90E2);
   static const Color blueEnd = Color(0xFF357ABD);
 
-  // Category Colors (same in both themes)
+
   static const Color categoryFood = Color(0xFFFF6B35);
   static const Color categoryTransport = Color(0xFF00D4FF);
   static const Color categoryBills = Color(0xFFEF4444);
@@ -93,7 +93,7 @@ class AppColors {
   static const Color error = Color(0xFFEF4444);
   static const Color info = tealStart;
 
-  // ==================== GRADIENT DEFINITIONS ====================
+
   
   static const LinearGradient tealGradient = LinearGradient(
     colors: [tealStart, tealEnd],
@@ -119,7 +119,7 @@ class AppColors {
     end: Alignment.bottomRight,
   );
 
-  // ==================== SHADOW DEFINITIONS ====================
+
   
   static List<BoxShadow> get defaultShadow => [
         BoxShadow(

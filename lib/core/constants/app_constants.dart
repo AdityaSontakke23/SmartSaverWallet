@@ -37,7 +37,7 @@ class AppConstants {
   static const String fGoalIsCompleted = 'isCompleted';
   static const String fGoalArchived = 'archived';
 
-  // Users.profile/settings maps
+  // User Profile fields
   static const String fProfile = 'profile';
   static const String fProfileName = 'name';
   static const String fProfileEmail = 'email';
@@ -60,21 +60,21 @@ class AppConstants {
   static const String keyUserId = 'user_id';
   static const String keyThemeMode = 'theme_mode';
 
-  // Animation Durations
+
   static const Duration splashDuration = Duration(seconds: 6);
   static const Duration animationDuration = Duration(milliseconds: 300);
 
-  // Numeric Constants
+
   static const double defaultPadding = 16.0;
   static const double cardRadius = 12.0;
   static const int maxTransactionHistory = 100;
 
-  // Date helpers for month ranges (dashboard & history queries)
+
   static DateTime startOfMonth(DateTime dt) => DateTime(dt.year, dt.month, 1);
   static DateTime endOfMonth(DateTime dt) =>
       DateTime(dt.year, dt.month + 1, 1).subtract(const Duration(milliseconds: 1));
 
-  // Format YYYY-MM (for budget.month)
+
   static String yyyymm(DateTime dt) =>
       '${dt.year}-${dt.month.toString().padLeft(2, '0')}';
 }
