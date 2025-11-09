@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "90416730355",
+    "project_id": "smart-saver-wallet-ver12-ad",
+    "storage_bucket": "smart-saver-wallet-ver12-ad.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:90416730355:android:6a27146de4d028ce36e786",
+        "android_client_info": {
+          "package_name": "com.example.smartsaverwallet"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvTtYlMqQe08OtZwSqDHaZFYa0fC1Ne9w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
