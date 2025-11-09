@@ -42,7 +42,7 @@ class SettingsScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // User info card
+            
             Container(
               margin: const EdgeInsets.all(16),
               padding: const EdgeInsets.all(20),
@@ -100,7 +100,7 @@ class SettingsScreen extends StatelessWidget {
               ),
             ),
 
-            // Appearance Section
+            
             const SettingsSection(title: 'Appearance'),
             SettingsCard(
               children: [
@@ -123,7 +123,7 @@ class SettingsScreen extends StatelessWidget {
               ],
             ),
 
-            // Security Section
+            
             const SettingsSection(title: 'Security & Privacy'),
             SettingsCard(
               children: [
@@ -146,7 +146,7 @@ class SettingsScreen extends StatelessWidget {
               ],
             ),
 
-            // About Section
+            
             const SettingsSection(title: 'About'),
             SettingsCard(
               children: [
@@ -171,7 +171,7 @@ class SettingsScreen extends StatelessWidget {
 
             const SizedBox(height: 24),
 
-            // Sign Out Button
+            
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: SizedBox(

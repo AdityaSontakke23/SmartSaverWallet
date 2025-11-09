@@ -7,8 +7,7 @@ class ReportsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // This would typically come from a backend or state management.
-    // Example static/dummy data for chart:
+    
     final reportData = [
       {'category': 'Food', 'amount': 250.0},
       {'category': 'Transport', 'amount': 120.0},

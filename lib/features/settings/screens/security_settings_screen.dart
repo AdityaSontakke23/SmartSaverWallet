@@ -386,18 +386,18 @@ class SecuritySettingsScreen extends StatelessWidget {
                         final user = FirebaseAuth.instance.currentUser;
                         if (user == null) throw Exception('Not logged in');
 
-                        // Re-authenticate
+                        
                         final credential = EmailAuthProvider.credential(
                           email: user.email!,
                           password: passwordController.text,
                         );
                         await user.reauthenticateWithCredential(credential);
 
-                        // Delete all user data from Firestore
+                        
                         final db = FirebaseFirestore.instance;
                         final uid = user.uid;
 
-                        // Delete transactions
+                        
                         final transactions = await db
                             .collection('transactions')
                             .where('uid', isEqualTo: uid)
@@ -406,7 +406,7 @@ class SecuritySettingsScreen extends StatelessWidget {
                           await doc.reference.delete();
                         }
 
-                        // Delete budgets
+                        
                         final budgets = await db
                             .collection('budgets')
                             .where('uid', isEqualTo: uid)
@@ -415,7 +415,7 @@ class SecuritySettingsScreen extends StatelessWidget {
                           await doc.reference.delete();
                         }
 
-                        // Delete goals
+                        
                         final goals = await db
                             .collection('goals')
                             .where('uid', isEqualTo: uid)
@@ -424,11 +424,11 @@ class SecuritySettingsScreen extends StatelessWidget {
                           await doc.reference.delete();
                         }
 
-                        // Delete user account
+                        
                         await user.delete();
 
                         if (context.mounted) {
-                          // Navigate to login screen
+                          
                           Navigator.of(context).pushNamedAndRemoveUntil(
                             '/login',
                             (route) => false,

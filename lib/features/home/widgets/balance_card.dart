@@ -4,12 +4,12 @@ import '../../../core/constants/app_constants.dart';
 
 class BalanceCard extends StatelessWidget {
   final double balance;
-  final bool isVisible; // Add this field
+  final bool isVisible;
 
   const BalanceCard({
     Key? key,
     required this.balance,
-    this.isVisible = true, // Default to visible for backward compatibility
+    this.isVisible = true,
   }) : super(key: key);
 
   @override
@@ -32,7 +32,7 @@ class BalanceCard extends StatelessWidget {
             Text(
               isVisible
                   ? '\₹${balance.toStringAsFixed(2)}'
-                  : '₹••••••', // Obfuscated when not visible
+                  : '₹••••••',
               style: AppTextStyles.h1(context).copyWith(color: color),
             ),
           ],

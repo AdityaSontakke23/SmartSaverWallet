@@ -19,7 +19,7 @@ class AboutScreen extends StatelessWidget {
           : AppColors.lightPrimaryBackground,
       body: CustomScrollView(
         slivers: [
-          // Gradient AppBar
+          
           SliverAppBar(
             expandedHeight: 200,
             pinned: true,
@@ -96,7 +96,7 @@ class AboutScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 24),
 
-                  // App Info
+                  
                   Container(
                     padding: const EdgeInsets.all(20),
                     margin: const EdgeInsets.symmetric(horizontal: 16),
@@ -128,7 +128,7 @@ class AboutScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 24),
 
-                  // Legal
+                  
                   SettingsCard(
                     children: [
                       SettingsItem(
@@ -154,7 +154,7 @@ class AboutScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 24),
 
-                  // Copyright
+                  
                   Center(
                     child: Column(
                       children: [

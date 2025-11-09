@@ -250,7 +250,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         label: 'Income',
                         value: dashboard.monthlyIncome,
                         color: Colors.green,
-                        isVisible: _balanceVisible, // Pass visibility state
+                        isVisible: _balanceVisible,
                       ),
                       const SizedBox(width: 8),
                       _StatCard(

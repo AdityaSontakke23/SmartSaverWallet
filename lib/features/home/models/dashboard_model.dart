@@ -17,7 +17,6 @@ class DashboardModel {
     required this.goalsCount,
   });
 
-  /// Parse from Firestore or API data, with fallbacks.
   factory DashboardModel.fromMap(Map<String, dynamic> data) {
     return DashboardModel(
       balance: (data['balance'] as num?)?.toDouble() ?? 0.0,
