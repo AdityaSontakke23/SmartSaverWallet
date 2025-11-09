@@ -1,17 +1,17 @@
 extension StringExtensions on String {
-  // Check if string is a valid email
+
   bool get isValidEmail {
     return RegExp(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$')
         .hasMatch(this);
   }
 
-  // Capitalize first letter
+
   String get capitalize {
     if (isEmpty) return this;
     return this[0].toUpperCase() + substring(1).toLowerCase();
   }
 
-  // Get initials from name
+
   String get initials {
     if (isEmpty) return '';
     final words = split(' ');
@@ -23,12 +23,12 @@ extension StringExtensions on String {
 }
 
 extension DoubleExtensions on double {
-  // Format as currency
+
   String get toCurrency {
     return '\$${toStringAsFixed(2)}';
   }
 
-  // Format with commas
+
   String get withCommas {
     return toString().replaceAllMapped(
       RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'),
@@ -38,13 +38,13 @@ extension DoubleExtensions on double {
 }
 
 extension DateTimeExtensions on DateTime {
-  // Check if date is today
+
   bool get isToday {
     final now = DateTime.now();
     return year == now.year && month == now.month && day == now.day;
   }
 
-  // Check if date is yesterday
+
   bool get isYesterday {
     final yesterday = DateTime.now().subtract(const Duration(days: 1));
     return year == yesterday.year && 
@@ -52,7 +52,7 @@ extension DateTimeExtensions on DateTime {
            day == yesterday.day;
   }
 
-  // Get time ago string
+
   String get timeAgo {
     final now = DateTime.now();
     final difference = now.difference(this);

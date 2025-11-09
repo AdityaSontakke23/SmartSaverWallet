@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppTextStyles {
-  // Get theme-aware color
+
   static Color _primaryText(BuildContext context) {
     return Theme.of(context).brightness == Brightness.dark
         ? Colors.white
@@ -21,7 +21,7 @@ class AppTextStyles {
         : const Color(0xFF0099CC);
   }
 
-  // ==================== HEADINGS ====================
+
   static TextStyle h1(BuildContext context) => GoogleFonts.poppins(
         fontSize: 32,
         fontWeight: FontWeight.w700,
@@ -47,7 +47,6 @@ class AppTextStyles {
         fontWeight: FontWeight.w500,
         color: _primaryText(context),
       );
-  // Add this after h4 method in AppTextStyles class
   static TextStyle sectionHeader(BuildContext context) => GoogleFonts.poppins(
         fontSize: 20,
         fontWeight: FontWeight.bold,
@@ -55,7 +54,6 @@ class AppTextStyles {
       );
 
 
-  // ==================== BODY TEXT ====================
   static TextStyle bodyLarge(BuildContext context) => GoogleFonts.poppins(
         fontSize: 16,
         fontWeight: FontWeight.w400,
@@ -77,12 +75,11 @@ class AppTextStyles {
         height: 1.3,
       );
 
-  // ==================== SPECIAL TEXT STYLES ====================
   static TextStyle button(BuildContext context) => GoogleFonts.poppins(
         fontSize: 16,
         fontWeight: FontWeight.w600,
         letterSpacing: 0.5,
-        color: Colors.white, // Buttons always use white text on colored background
+        color: Colors.white,
       );
 
   static TextStyle caption(BuildContext context) => GoogleFonts.poppins(
@@ -98,7 +95,6 @@ class AppTextStyles {
         color: _secondaryText(context),
       );
 
-  // ==================== AMOUNT TEXT STYLES ====================
   static TextStyle amountLarge(BuildContext context) => GoogleFonts.poppins(
         fontSize: 36,
         fontWeight: FontWeight.w700,
@@ -117,16 +113,14 @@ class AppTextStyles {
         color: _primaryText(context),
       );
 
-  // ==================== UTILITY STYLES ====================
-  
-  // For income amounts (always green)
+
   static TextStyle amountIncome(BuildContext context) => GoogleFonts.poppins(
         fontSize: 18,
         fontWeight: FontWeight.w600,
         color: const Color(0xFF10B981),
       );
 
-  // For expense amounts (always red)
+
   static TextStyle amountExpense(BuildContext context) => GoogleFonts.poppins(
         fontSize: 18,
         fontWeight: FontWeight.w600,
@@ -135,7 +129,6 @@ class AppTextStyles {
             : const Color(0xFFDC2626),
       );
 
-  // For links/clickable text
   static TextStyle link(BuildContext context) => GoogleFonts.poppins(
         fontSize: 14,
         fontWeight: FontWeight.w500,
@@ -143,7 +136,6 @@ class AppTextStyles {
         decoration: TextDecoration.underline,
       );
 
-  // For error messages
   static TextStyle error(BuildContext context) => GoogleFonts.poppins(
         fontSize: 12,
         fontWeight: FontWeight.w400,
@@ -152,7 +144,7 @@ class AppTextStyles {
             : const Color(0xFFDC2626),
       );
 
-  // For success messages
+
   static TextStyle success(BuildContext context) => GoogleFonts.poppins(
         fontSize: 12,
         fontWeight: FontWeight.w400,

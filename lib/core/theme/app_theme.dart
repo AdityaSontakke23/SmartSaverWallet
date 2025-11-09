@@ -3,27 +3,27 @@ import 'package:google_fonts/google_fonts.dart';
 import '../constants/colors.dart';
 
 class AppTheme {
-  // ==================== DARK THEME ====================
+  // Dark Theme
   static ThemeData darkTheme = ThemeData(
     useMaterial3: true,
     brightness: Brightness.dark,
-    scaffoldBackgroundColor: AppColors.darkPrimaryBackground, // ✅ Fixed: Use dark background
+    scaffoldBackgroundColor: AppColors.darkPrimaryBackground,
     
-    // Color Scheme - Dark Mode
+
     colorScheme: ColorScheme.dark(
       primary: AppColors.tealStart,
       secondary: AppColors.purpleStart,
       error: AppColors.error,
-      surface: AppColors.darkCardBackground, // ✅ Fixed: Use dark card background
-      background: AppColors.darkPrimaryBackground, // ✅ Fixed: Use dark background
+      surface: AppColors.darkCardBackground,
+      background: AppColors.darkPrimaryBackground,
       onPrimary: Colors.white,
       onSecondary: Colors.white,
-      onSurface: AppColors.darkPrimaryText, // ✅ Fixed: Use dark mode text
-      onBackground: AppColors.darkPrimaryText, // ✅ Fixed: Use dark mode text
+      onSurface: AppColors.darkPrimaryText,
+      onBackground: AppColors.darkPrimaryText,
       onError: Colors.white,
     ),
     
-    // Typography - Dark Mode (using GoogleFonts directly)
+
     textTheme: TextTheme(
       displayLarge: GoogleFonts.poppins(
         fontSize: 28,
@@ -57,7 +57,7 @@ class AppTheme {
       ),
     ),
 
-    // AppBar Theme - Dark
+
     appBarTheme: AppBarTheme(
       backgroundColor: Colors.transparent,
       elevation: 0,
@@ -70,9 +70,9 @@ class AppTheme {
       iconTheme: const IconThemeData(color: Colors.white),
     ),
 
-    // Card Theme - Dark
+
     cardTheme: CardThemeData(
-      color: AppColors.darkCardBackground, // ✅ Fixed: Use dark card background
+      color: AppColors.darkCardBackground,
       elevation: 0,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
@@ -80,7 +80,7 @@ class AppTheme {
       margin: EdgeInsets.zero,
     ),
 
-    // Button Themes - Dark
+
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         elevation: 0,
@@ -98,10 +98,10 @@ class AppTheme {
       ),
     ),
 
-    // Input Decoration - Dark
+
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
-      fillColor: AppColors.darkSurfaceColor, // ✅ Fixed: Use dark surface color
+      fillColor: AppColors.darkSurfaceColor,
       contentPadding: const EdgeInsets.all(16),
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
@@ -128,27 +128,27 @@ class AppTheme {
       labelStyle: GoogleFonts.poppins(
         fontSize: 13,
         fontWeight: FontWeight.w500,
-        color: AppColors.darkSecondaryText, // ✅ Fixed: Use dark secondary text
+        color: AppColors.darkSecondaryText,
       ),
       hintStyle: GoogleFonts.poppins(
         fontSize: 13,
         fontWeight: FontWeight.w400,
-        color: AppColors.darkSecondaryText.withOpacity(0.5), // ✅ Fixed
+        color: AppColors.darkSecondaryText.withOpacity(0.5),
       ),
     ),
 
-    // Bottom Navigation Bar - Dark
+
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
-      backgroundColor: AppColors.darkCardBackground, // ✅ Fixed: Use dark card background
+      backgroundColor: AppColors.darkCardBackground,
       selectedItemColor: AppColors.tealStart,
-      unselectedItemColor: AppColors.darkSecondaryText, // ✅ Fixed: Use dark secondary text
+      unselectedItemColor: AppColors.darkSecondaryText,
       type: BottomNavigationBarType.fixed,
       elevation: 0,
     ),
 
-    // Dialog Theme - Dark
+
     dialogTheme: DialogThemeData(
-      backgroundColor: AppColors.darkCardBackground, // ✅ Fixed: Use dark card background
+      backgroundColor: AppColors.darkCardBackground,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
       ),
@@ -160,18 +160,18 @@ class AppTheme {
       contentTextStyle: GoogleFonts.poppins(
         fontSize: 14,
         fontWeight: FontWeight.w400,
-        color: AppColors.darkSecondaryText, // ✅ Fixed: Use dark secondary text
+        color: AppColors.darkSecondaryText,
       ),
     ),
   );
 
-  // ==================== LIGHT THEME ====================
+  // Light Theme
   static ThemeData lightTheme = ThemeData(
     useMaterial3: true,
     brightness: Brightness.light,
-    scaffoldBackgroundColor: AppColors.lightPrimaryBackground, // ✅ Fixed: Use light background
+    scaffoldBackgroundColor: AppColors.lightPrimaryBackground,
     
-    // Color Scheme - Light Mode
+
     colorScheme: const ColorScheme.light(
       primary: Color(0xFF0099CC),
       secondary: Color(0xFF7C3AED),
@@ -185,7 +185,7 @@ class AppTheme {
       onError: Colors.white,
     ),
     
-    // Typography - Light Mode (using GoogleFonts directly)
+
     textTheme: TextTheme(
       displayLarge: GoogleFonts.poppins(
         fontSize: 28,
@@ -219,7 +219,7 @@ class AppTheme {
       ),
     ),
 
-    // AppBar Theme - Light
+
     appBarTheme: AppBarTheme(
       backgroundColor: Colors.white,
       elevation: 0,
@@ -235,7 +235,7 @@ class AppTheme {
       surfaceTintColor: Colors.transparent,
     ),
 
-    // Card Theme - Light
+
     cardTheme: CardThemeData(
       color: Colors.white,
       elevation: 0,
@@ -250,7 +250,7 @@ class AppTheme {
       shadowColor: Colors.black.withOpacity(0.05),
     ),
 
-    // Button Themes - Light
+
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         elevation: 0,
@@ -269,7 +269,7 @@ class AppTheme {
       ),
     ),
 
-    // Input Decoration - Light
+
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
       fillColor: const Color(0xFFF9FAFB),
@@ -321,7 +321,7 @@ class AppTheme {
       ),
     ),
 
-    // Bottom Navigation Bar - Light
+
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       backgroundColor: Colors.white,
       selectedItemColor: Color(0xFF0099CC),
@@ -332,7 +332,7 @@ class AppTheme {
       unselectedIconTheme: IconThemeData(size: 24),
     ),
 
-    // Dialog Theme - Light
+
     dialogTheme: DialogThemeData(
       backgroundColor: Colors.white,
       shape: RoundedRectangleBorder(
@@ -352,12 +352,12 @@ class AppTheme {
       shadowColor: Colors.black.withOpacity(0.1),
     ),
 
-    // Icon Theme - Light
+
     iconTheme: const IconThemeData(
       color: Color(0xFF1A1A1A),
     ),
 
-    // Divider Theme - Light
+
     dividerTheme: const DividerThemeData(
       color: Color(0xFFE5E7EB),
       thickness: 1,

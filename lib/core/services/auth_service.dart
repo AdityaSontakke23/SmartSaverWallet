@@ -12,7 +12,7 @@ class AuthService {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
   final StorageService _storage = StorageService();
 
-  // Current user and uid helpers
+
   User? get currentUser => _auth.currentUser;
   String get uidOrThrow {
     final u = _auth.currentUser;
@@ -22,10 +22,9 @@ class AuthService {
     return u.uid;
   }
 
-  // Auth state stream (for splash/auth flows)
+
   Stream<User?> authStateChanges() => _auth.authStateChanges();
 
-  // Sign up with email & password, then create users/{uid} profile/settings
   Future<UserCredential> signUp(String email, String password, {String? displayName}) async {
     final cred = await _auth.createUserWithEmailAndPassword(email: email, password: password);
     if (displayName != null && displayName.isNotEmpty) {
@@ -37,7 +36,7 @@ class AuthService {
     return cred;
   }
 
-  // Login with email & password
+
   Future<UserCredential> login(String email, String password) async {
     final cred = await _auth.signInWithEmailAndPassword(email: email, password: password);
     await _storage.setLoggedIn(true);
@@ -45,14 +44,14 @@ class AuthService {
     return cred;
   }
 
-  // Logout
+
   Future<void> logout() async {
     await _auth.signOut();
     await _storage.setLoggedIn(false);
     await _storage.setUserId('');
   }
 
-  // Make sure users/{uid} exists with default profile/settings (idempotent)
+
   Future<void> _ensureUserDoc(User user) async {
     final docRef = _db.collection(AppConstants.colUsers).doc(user.uid);
     final snap = await docRef.get();
@@ -76,7 +75,7 @@ class AuthService {
     }, SetOptions(merge: true));
   }
 
-  // Optional helpers to update parts of the profile/settings
+
   Future<void> updateProfile({String? name, String? photoURL, String? currency, String? theme, bool? notificationsEnabled}) async {
     final uid = uidOrThrow;
     final data = <String, dynamic>{};

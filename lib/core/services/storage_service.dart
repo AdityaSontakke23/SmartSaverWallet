@@ -15,7 +15,7 @@ class StorageService {
     _hiveBox = await Hive.openBox(AppConstants.appName);
   }
 
-  // SharedPreferences getters/setters
+
   bool get isLoggedIn => _prefs?.getBool(AppConstants.keyIsLoggedIn) ?? false;
   Future<void> setLoggedIn(bool value) =>
       _prefs!.setBool(AppConstants.keyIsLoggedIn, value);
@@ -36,7 +36,7 @@ class StorageService {
   Future<void> setThemeMode(ThemeMode mode) =>
       _prefs!.setString(AppConstants.keyThemeMode, mode.name);
 
-  // Hive data storage
+
   Future<void> saveTransaction(Map<String, dynamic> txn) =>
       _hiveBox!.put(txn['id'], txn);
 
