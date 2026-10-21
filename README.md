@@ -111,6 +111,6 @@ SmartSaver Wallet is a Flutter + Firebase personal finance app that helps you tr
 ### 2. Clone the Repository
 
 ```bash
-git clone <your-repo-url>.git
+git clone https://github.com/AdityaSontakke23/SmartSaverWallet.git
 cd smartsaver_wallet
 flutter run
